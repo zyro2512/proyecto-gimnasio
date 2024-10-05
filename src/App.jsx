@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
+import MemberList from './components/MemberList'; 
 import React from 'react';
 
 function App() {
@@ -36,9 +37,11 @@ function App() {
          <a href="#rutinas" onClick={() => handleNavClick('rutinas')}>Rutinas de ejercicio</a>
       </nav>
       <main>
-        {activeSection === 'membresias' && <Membresias members={members} />}
+        <MemberList />
+        {/* {activeSection === 'membresias' && <Membresias members={members} />}
         {activeSection === 'reservas' && <Reservas />}
         {activeSection === 'rutinas' && <Rutinas />}
+        */}
       </main>
     </>
   );
