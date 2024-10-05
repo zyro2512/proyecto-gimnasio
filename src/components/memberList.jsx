@@ -13,7 +13,7 @@ const MemberList = () => {
 
   return (
     <div>
-      <h1>Lista de Miembros</h1>
+      <h3>Lista de Miembros</h3>
       <ul>
         {members.map(member => (
           <li key={member._id}>{member.nombre} {member.apellido}</li>
