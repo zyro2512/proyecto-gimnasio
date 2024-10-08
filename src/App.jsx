@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Members from './components/members'; 
 import React from 'react';
+import MemberList from './components/memberList';
 
 function App() {
   const [activeSection, setActiveSection] = useState('membresias');
@@ -18,11 +19,13 @@ function App() {
       </header>
       <nav>
          <a href="#membresias" onClick={() => handleNavClick('membresias')}>Membresías</a>
+         <a href="#miembros" onClick={() => handleNavClick('miembros')}>Miembros</a>
          <a href="#reservas" onClick={() => handleNavClick('reservas')}>Clases</a>
          <a href="#rutinas" onClick={() => handleNavClick('rutinas')}>Rutinas de ejercicio</a>
       </nav>
       <main>
         {activeSection === 'membresias' && <Members />}
+        {activeSection === 'miembros' && <MemberList />}
         {activeSection === 'reservas' && <Reservas />}
         {activeSection === 'rutinas' && <Rutinas />}
       </main>
