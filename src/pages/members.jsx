@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import MemberList from '../components/MemberList';
-import MemberCreate from '../components/MemberCreate';
+import MemberList from './MemberList';
+import MemberCreate from './MemberCreate';
 
 const Members = () => {
   // Estado para controlar qué componente mostrar (lista o formulario)
