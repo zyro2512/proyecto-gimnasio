@@ -41,6 +41,8 @@ const MemberCreate = () => {
   };
 
   return (
+    <div>
+    <h3>Agregar un nuevo miembro al gimnasio</h3>
     <form onSubmit={handleSubmit}>
       <label>
         Nombre:
@@ -82,6 +84,7 @@ const MemberCreate = () => {
       <br />
       <button type="submit">Enviar</button>
     </form>
+    </div>
   );
 };
 
