@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
-const MemberList = () => {
-  const [members, setMembers] = useState([]);
-    // Estado para controlar qué componente mostrar (lista o detalle)
+const Member = () => {
+  const [members, detailMember] = useState([]);
+    // Estado para controlar qué componente mostrar (todos los miembros o detalles de un miembro)
     const [showDetails, setShowDetails] = useState(false);
 
     // Función para alternar entre mostrar la lista de miembros o el detalle
