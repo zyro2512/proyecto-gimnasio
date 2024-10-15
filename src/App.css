@@ -7,13 +7,12 @@ body {
 }
 
 header {
-  position: sticky;
   top: 0;
   width: 100%; 
   background-color: #333;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   opacity: 0.8;
   margin: 5px 0;
@@ -25,7 +24,7 @@ nav {
   top: 60px;
   width: 100%;
   opacity: 0.8;
-  padding: 10px 0;
+  padding: 5px 0;
   background-color: #333;
   text-align: center;
   border-radius: 10px;
@@ -60,7 +59,7 @@ nav a {
 }
 
 main {
-  margin-top: 100px;
+  margin-top: 30px;
   background-color: grey;
   border-radius: 10px;
   opacity: 0.8;
@@ -120,3 +119,5 @@ table {
   th {
     background-color: black;
   }
+
+  
