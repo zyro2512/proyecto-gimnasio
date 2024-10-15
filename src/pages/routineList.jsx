@@ -26,6 +26,7 @@ const RoutineList = () => {
       <tr>
         <th>Nombre</th>
         <th>Descripción</th>
+        <th>Nivel</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -34,6 +35,7 @@ const RoutineList = () => {
         <tr key={routine._id}>
           <td>{routine.nombre}</td>
           <td>{routine.descripcion}</td>
+          <td>{routine.nivel}</td>
           <td><button onClick={toggleDetails}>Ver</button></td>
         </tr>
       ))}

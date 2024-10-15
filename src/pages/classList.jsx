@@ -27,6 +27,7 @@ const ClassList = () => {
       <tr>
         <th>Nombre</th>
         <th>Nivel</th>
+        <th>Entrenador</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -35,6 +36,7 @@ const ClassList = () => {
         <tr key={class1._id}>
           <td>{class1.nombre}</td>
           <td>{class1.nivel}</td>
+          <td>{class1.entrenador}</td>
           <td><button onClick={toggleDetails}>Ver</button></td>
         </tr>
       ))}

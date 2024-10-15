@@ -21,11 +21,26 @@ const MemberList = () => {
   return (
     <div>
       <h3>Lista de Miembros</h3>
-      <ul>
-        {members.map(member => (
-          <li key={member._id}>{member.nombre} {member.apellido} <button onClick={toggleDetails}>Ver</button></li>
-        ))}
-      </ul>
+      <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>email</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {members.map(member => (
+        <tr key={member._id}>
+          <td>{member.nombre}</td>
+          <td>{member.apellido}</td>
+          <td>{member.email}</td>
+          <td><button onClick={toggleDetails}>Ver</button></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
     </div>
   );
 };

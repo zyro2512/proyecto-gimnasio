@@ -27,17 +27,17 @@ const ClassCreate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('http://localhost:3000/api/members', {
+    fetch('http://localhost:3000/api/classes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     })
     .then(response => response.json())
     .then(data => {
-      console.log('Miembro creado:', data);
+      console.log('Clase creada:', data);
       // Limpiar el formulario o hacer otras acciones después de crear el miembro
     })
-    .catch(err => console.error('Error al crear miembro:', err));
+    .catch(err => console.error('Error al crear clase:', err));
   };
 
   return (
