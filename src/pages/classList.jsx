@@ -19,15 +19,29 @@ const ClassList = () => {
   }, []); // The empty array ensures that this effect only runs once (when the component mounts)
 
   return (
+
     <div>
-      <h3>Lista de Clases</h3>
-      <ul>
-        {classes.map(class1 => (
-          <li key={class1._id}>{class1.nombre} {class1.nivel} <button onClick={toggleDetails}>Ver</button></li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+  <h3>Lista de Clases</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Nivel</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {classes.map(class1 => (
+        <tr key={class1._id}>
+          <td>{class1.nombre}</td>
+          <td>{class1.nivel}</td>
+          <td><button onClick={toggleDetails}>Ver</button></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+)
+}
 
 export default ClassList;

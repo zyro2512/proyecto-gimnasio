@@ -1,4 +1,5 @@
 import MemberCreate from "./memberCreate";
+import '../index.css'
 
 
 const Button = () => {

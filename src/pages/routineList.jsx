@@ -19,14 +19,27 @@ const RoutineList = () => {
   }, []); // The empty array ensures that this effect only runs once (when the component mounts)
 
   return (
-    <div>
-      <h3>Lista de Rutinas</h3>
-      <ul>
-        {routines.map(routine => (
-          <li key={routine._id}>{routine.nombre} {routine.descripcion} <button onClick={toggleDetails}>Ver</button></li>
-        ))}
-      </ul>
-    </div>
+<div>
+  <h3>Lista de Rutinas</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {routines.map(routine => (
+        <tr key={routine._id}>
+          <td>{routine.nombre}</td>
+          <td>{routine.descripcion}</td>
+          <td><button onClick={toggleDetails}>Ver</button></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  </div>
   );
 };
 
