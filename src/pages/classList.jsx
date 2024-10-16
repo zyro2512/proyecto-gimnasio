@@ -42,9 +42,9 @@ const ClassList = () => {
       </table>
 
       {showModal && (
-        <div id="myModal" className="modal" style={modalStyle}>
-          <div className="modal-content" style={modalContentStyle}>
-            <span className="close" onClick={() => setShowModal(false)} style={closeStyle}>&times;</span>
+        <div id="myModal" className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={() => setShowModal(false)}>&times;</span>
             <p>Nombre: {selectedClass.nombre}</p>
             <p>Nivel: {selectedClass.nivel}</p>
             <p>Entrenador: {selectedClass.entrenador}</p>
@@ -53,35 +53,6 @@ const ClassList = () => {
       )}
     </div>
   );
-};
-
-// Estilos en línea para mantener la simplicidad
-const modalStyle = {
-  display: 'block',
-  position: 'fixed',
-  zIndex: 1,
-  left: 0,
-  top: 0,
-  width: '100%',
-  height: '100%',
-  overflow: 'auto',
-  backgroundColor: 'rgba(0,0,0,0.4)'
-};
-
-const modalContentStyle = {
-  backgroundColor: '#fefefe',
-  margin: '15% auto',
-  padding: '20px',
-  border: '1px solid #888',
-  width: '80%'
-};
-
-const closeStyle = {
-  color: '#aaa',
-  float: 'right',
-  fontSize: '28px',
-  fontWeight: 'bold',
-  cursor: 'pointer'
 };
 
 export default ClassList;
