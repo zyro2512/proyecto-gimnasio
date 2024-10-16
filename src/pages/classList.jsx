@@ -35,7 +35,10 @@ const ClassList = () => {
               <td>{class1.nombre}</td>
               <td>{class1.nivel}</td>
               <td>{class1.entrenador}</td>
-              <td><button onClick={() => toggleDetails(class1)}>Ver</button></td>
+              <td>
+              <button onClick={() => toggleDetails(member)}>Ver</button>
+              <button className='botonbaja' onClick={() => toggleDetails(member)}>Baja</button>
+              </td>
             </tr>
           ))}
         </tbody>

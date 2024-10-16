@@ -27,6 +27,7 @@ const MemberList = () => {
             <th>Apellido</th>
             <th>Email</th>
             <th>Acciones</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -36,6 +37,7 @@ const MemberList = () => {
               <td>{member.apellido}</td>
               <td>{member.email}</td>
               <td><button onClick={() => toggleDetails(member)}>Ver</button></td>
+              
             </tr>
           ))}
         </tbody>

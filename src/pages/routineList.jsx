@@ -35,7 +35,10 @@ const RoutineList = () => {
               <td>{routine.nombre}</td>
               <td>{routine.descripcion}</td>
               <td>{routine.nivel}</td>
-              <td><button onClick={() => toggleDetails(routine)}>Ver</button></td>
+              <td>
+              <button onClick={() => toggleDetails(member)}>Ver</button>
+              <button className='botonbaja' onClick={() => toggleDetails(member)}>Baja</button>
+              </td>
             </tr>
           ))}
         </tbody>
