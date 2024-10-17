@@ -146,3 +146,29 @@ table {
   cursor: pointer;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.left-column {
+  width: 48%; /* Ocupa el 48% de la pantalla */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.right-column {
+  width: 48%; /* Ocupa el 48% de la pantalla */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.rutina {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+

@@ -75,6 +75,9 @@ const MemberDetails = ({ onBack }) => {
   return (
     <div>
       <h2>Detalles del Miembro</h2>
+      <div className="container">
+      {/* Datos personales y membresía */}
+      <div className="left-column">
       <h3>Información personal</h3>
       <div>
         <label>Nombre: </label>
@@ -182,6 +185,43 @@ const MemberDetails = ({ onBack }) => {
         disabled={true}  // Deshabilitado
      />
     </div>
+    </div>
+{/* Rutinas y ejercicios */}
+<div className="right-column">
+        <h3>Rutinas y ejercicios</h3>
+        {editableMember.rutinas && editableMember.rutinas.length > 0 ? (
+          editableMember.rutinas.map((rutina, index) => (
+            <div key={index} className="rutina">
+              <h4>Rutina: {rutina.nombre}</h4>
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Ejercicio</th>
+                    <th>Series</th>
+                    <th>Repeticiones</th>
+                    <th>Peso (kg)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rutina.ejercicios.map((ejercicio, idx) => (
+                    <tr key={idx}>
+                      <td>{ejercicio.nombre}</td>
+                      <td>{ejercicio.series}</td>
+                      <td>{ejercicio.repeticiones}</td>
+                      <td>{ejercicio.peso}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ))
+        ) : (
+          <p>No hay rutinas asignadas.</p>
+        )}
+      </div>
+    </div>
+
+
       {isEditing ? (
         <button onClick={handleSaveClick}>Guardar Cambios</button>
       ) : (
@@ -192,5 +232,7 @@ const MemberDetails = ({ onBack }) => {
     </div>
   );
 };
+
+
 
 export default MemberDetails;
