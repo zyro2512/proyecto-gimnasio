@@ -11,6 +11,12 @@ const memberService = {
   // Método para obtener el miembro seleccionado
   getSelectedMember() {
     return selectedMember;
+  },
+
+  // Método para limpiar/desseleccioando el miembro seleccionado
+  clearSelectedMember(){
+    selectedMember = null;
+
   }
 };
 

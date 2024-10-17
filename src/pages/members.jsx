@@ -19,7 +19,9 @@ const Members = () => {
       {!showForm && (
         <div>
           <MemberList />
+          <div className="button-container">
           <button onClick={toggleForm}>Agregar Miembro</button>
+          </div>
         </div>
       )}
 
@@ -27,7 +29,9 @@ const Members = () => {
       {showForm && (
         <div>
           <MemberCreate />
+          <div className="button-container">
           <button onClick={toggleForm}>Volver a la Lista</button>
+          </div>
         </div>
       )}
     </div>

@@ -77,114 +77,111 @@ const MemberDetails = ({ onBack }) => {
       <h2>Detalles del Miembro</h2>
       <div className="container">
       {/* Datos personales y membresía */}
-      <div className="left-column">
-      <h3>Información personal</h3>
-      <div>
-        <label>Nombre: </label>
-        <input
-          type="text"
-          name="nombre"
-          value={editableMember.nombre}
-          onChange={handleInputChange}
-          disabled={!isEditing}  // Deshabilitado si no está en modo edición
-        />
-      </div>
-
-      <div>
-        <label>Apellido: </label>
-        <input
-          type="text"
-          name="apellido"
-          value={editableMember.apellido}
-          onChange={handleInputChange}
-          disabled={!isEditing}  // Deshabilitado si no está en modo edición
-        />
-      </div>
-
-      <div>
-        <label>Peso: </label>
-        <input
-          type="number"
-          name="peso"
-          value={editableMember.peso}
-          onChange={handleInputChange}
-          disabled={!isEditing}  // Deshabilitado si no está en modo edición
-        />
-      </div>
-
-      <div>
-        <label>Altura: </label>
-        <input
-          type="number"
-          name="altura"
-          value={editableMember.altura}
-          onChange={handleInputChange}
-          disabled={!isEditing}  // Deshabilitado si no está en modo edición
-        />
-      </div>
-      <div>
-        <label>Fecha de nacimiento: </label>
-        <input
-          type="date"
-          name="fecha_nacimiento"
-          value={editableMember.fecha_nacimiento ? editableMember.fecha_nacimiento.split('T')[0] : ''}
-          onChange={handleInputChange}
-          disabled={!isEditing}  // Deshabilitado si no está en modo edición
-        />
-      </div>
-      <div>
-        <label>Email: </label>
-        <input
-          type="email"
-          name="email"
-          value={editableMember.email}
-          onChange={handleInputChange}
-          disabled={!isEditing}  // Deshabilitado si no está en modo edición
-        />
-      </div>
-      <h3>Información sobre la membresía</h3>
-      <div>
-        <label>Tipo de membresía: </label>
-        <select
-          name="membresia.tipo"
-          value={editableMember.membresia.tipo}
-          onChange={handleInputChange}
-          disabled={!isEditing}  // Deshabilitado si no está en modo edición
-        >
+        <div className="left-column">
+        <h3>Información personal</h3>
+        <div>
+          <label>Nombre: </label>
+          <input
+            type="text"
+            name="nombre"
+            value={editableMember.nombre}
+            onChange={handleInputChange}
+            disabled={!isEditing}  // Deshabilitado si no está en modo edición
+          />
+        </div>
+        <div>
+          <label>Apellido: </label>
+          <input
+            type="text"
+            name="apellido"
+            value={editableMember.apellido}
+            onChange={handleInputChange}
+            disabled={!isEditing}  // Deshabilitado si no está en modo edición
+          />
+        </div>
+        <div>
+          <label>Peso: </label>
+          <input
+            type="number"
+            name="peso"
+           value={editableMember.peso}
+           onChange={handleInputChange}
+           disabled={!isEditing}  // Deshabilitado si no está en modo edición
+         />
+        </div>
+        <div>
+          <label>Altura: </label>
+          <input
+            type="number"
+            name="altura"
+            value={editableMember.altura}
+            onChange={handleInputChange}
+           disabled={!isEditing}  // Deshabilitado si no está en modo edición
+          />
+        </div>
+        <div>
+          <label>Fecha de nacimiento: </label>
+          <input
+            type="date"
+            name="fecha_nacimiento"
+            value={editableMember.fecha_nacimiento ? editableMember.fecha_nacimiento.split('T')[0] : ''}
+            onChange={handleInputChange}
+            disabled={!isEditing}  // Deshabilitado si no está en modo edición
+          />
+        </div>
+        <div>
+          <label>Email: </label>
+          <input
+            type="email"
+            name="email"
+            value={editableMember.email}
+            onChange={handleInputChange}
+           disabled={!isEditing}  // Deshabilitado si no está en modo edición
+          />
+        </div>
+        <h3>Información sobre la membresía</h3>
+        <div>
+         <label>Tipo de membresía: </label>
+         <select
+           name="membresia.tipo"
+           value={editableMember.membresia.tipo}
+           onChange={handleInputChange}
+            disabled={!isEditing}  // Deshabilitado si no está en modo edición
+         >
           <option value="mensual">Mensual</option>
           <option value="anual">Anual</option>
         </select>
-      </div>
+        </div>
+        <div>
+          <label>Estado: </label>
+         <select
+            name="membresia.estado"
+           value={editableMember.membresia.estado}
+           onChange={handleInputChange}
+           disabled={!isEditing}  // Deshabilitado si no está en modo edición
+          >
+           <option value="activo">Activo</option>
+           <option value="inactivo">Inactivo</option>
+          </select>
+        </div>
+        <div>
+          <label>Fecha de inicio: </label>
+          <input
+         type="date"
+         name="membresia.fecha_inicio"
+         value={editableMember.membresia.fecha_inicio ? editableMember.membresia.fecha_inicio.split('T')[0] : ''}
+         disabled={true}  // Deshabilitado
+        />
+        </div>
       <div>
-        <label>Estado: </label>
-        <select
-          name="membresia.estado"
-          value={editableMember.membresia.estado}
-          onChange={handleInputChange}
-          disabled={!isEditing}  // Deshabilitado si no está en modo edición
-        >
-          <option value="activo">Activo</option>
-          <option value="inactivo">Inactivo</option>
-        </select>
-      </div>
-      <div>
-      <label>Fecha de inicio: </label>
-      <input
-        type="date"
-        name="membresia.fecha_inicio"
-        value={editableMember.membresia.fecha_inicio ? editableMember.membresia.fecha_inicio.split('T')[0] : ''}
-        disabled={true}  // Deshabilitado
+        <label>Fecha de fin: </label>
+        <input
+         type="date"
+         name="membresia.fecha_fin"
+         value={editableMember.membresia.fecha_fin ? editableMember.membresia.fecha_fin.split('T')[0] : ''}
+         disabled={true}  // Deshabilitado
       />
-    </div>
-    <div>
-      <label>Fecha de fin: </label>
-      <input
-        type="date"
-        name="membresia.fecha_fin"
-        value={editableMember.membresia.fecha_fin ? editableMember.membresia.fecha_fin.split('T')[0] : ''}
-        disabled={true}  // Deshabilitado
-     />
-    </div>
+      </div>
     </div>
 {/* Rutinas y ejercicios */}
 <div className="right-column">
@@ -221,7 +218,7 @@ const MemberDetails = ({ onBack }) => {
       </div>
     </div>
 
-
+    <div className="button-container">
       {isEditing ? (
         <button onClick={handleSaveClick}>Guardar Cambios</button>
       ) : (
@@ -229,6 +226,7 @@ const MemberDetails = ({ onBack }) => {
       )}
 
       <button onClick={onBack}>Volver a la lista</button>
+    </div>
     </div>
   );
 };

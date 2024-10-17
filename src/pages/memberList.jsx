@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import MemberDetails from './MemberDetails';  
+import MemberDetails from './memberDetails';  
+import MemberDelete from './memberDelete';  
 import memberService from '../services/memberService';
 
 const MemberList = () => {
   const [members, setMembers] = useState([]);
   const [selectedMember, setSelectedMember] = useState(null);
+  const [selectedToDelMember, setSelectedToDelMember] = useState(null);
 
   useEffect(() => {
     // Llamada al backend para obtener la lista de miembros
@@ -19,6 +21,12 @@ const MemberList = () => {
     memberService.setSelectedMember(member);   //También lo almacenamos en el servicio
   };
 
+  const handleDeleteClick = (member) => {
+    setSelectedToDelMember(member);  // Almacenar el miembro seleccionado
+    memberService.setSelectedMember(member);   //También lo almacenamos en el servicio
+  };
+
+
   // Función para volver a la lista de miembros
   const handleBackToList = () => {
     memberService.setSelectedMember(null);  //En el servicio cambiamos de miembro seleccionado
@@ -28,6 +36,11 @@ const MemberList = () => {
   // Si hay un miembro seleccionado, mostramos el componente de detalles
   if (selectedMember) {
     return <MemberDetails onBack={handleBackToList} />;
+  }
+
+  // Si hay un miembro seleccionado para borrar, mostramos la pantalla de borrado
+  if (selectedToDelMember) {
+    return <MemberDelete />;
   }
 
   return (
@@ -48,7 +61,9 @@ const MemberList = () => {
               <td>{member.nombre}</td>
               <td>{member.apellido}</td>
               <td>{member.email}</td>
-              <td><button onClick={() => handleMemberClick(member)}>Ver Detalles</button></td>
+              <td><button onClick={() => handleMemberClick(member)}>Ver Detalles</button>
+                <button className='botonbaja' onClick={() => handleDeleteClick(member)}>Baja</button>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -171,4 +171,10 @@ table {
   padding-bottom: 10px;
 }
 
-
+.button-container {
+  display: flex;
+  justify-content: center;  /* Centrar horizontalmente */
+  align-items: center;      /* Centrar verticalmente */
+  gap: 20px;                /* Espacio entre botones */
+  margin-top: 20px;         /* Añadir margen superior para separarlos del contenido */
+}
