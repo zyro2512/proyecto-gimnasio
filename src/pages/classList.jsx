@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
+import ClassDetails from './classDetails';  // Asegúrate de tener este componente
+import ClassDelete from './classDelete';    // Asegúrate de tener este componente
+import classService from '../services/classService'; // Importamos classService
 
 const ClassList = () => {
   const [classes, setClasses] = useState([]);
-  const [showModal, setShowModal] = useState(false);
   const [selectedClass, setSelectedClass] = useState(null);
-
-  const toggleDetails = (class1) => {
-    setSelectedClass(class1);
-    setShowModal(!showModal);
-  };
+  const [selectedToDelClass, setSelectedToDelClass] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:3000/api/classes')
@@ -17,9 +15,32 @@ const ClassList = () => {
       .catch(error => console.error('Error fetching classes:', error));
   }, []);
 
+  const handleClassClick = (class1) => {
+    setSelectedClass(class1);
+    classService.setSelectedClass(class1);
+  };
+
+  const handleDeleteClick = (class1) => {
+    setSelectedToDelClass(class1);
+    classService.setSelectedClass(class1);
+  };
+
+  const handleBackToList = () => {
+    classService.setSelectedClass(null);
+    setSelectedClass(null);
+  };
+
+  if (selectedClass) {
+    return <ClassDetails onBack={handleBackToList} />;
+  }
+
+  if (selectedToDelClass) {
+    return <ClassDelete />;
+  }
+
   return (
     <div>
-      <h3>Lista de Clases</h3>
+      <h2>Lista de Clases</h2>
       <table>
         <thead>
           <tr>
@@ -36,24 +57,13 @@ const ClassList = () => {
               <td>{class1.nivel}</td>
               <td>{class1.entrenador}</td>
               <td>
-              <button onClick={() => toggleDetails(member)}>Ver</button>
-              <button className='botonbaja' onClick={() => toggleDetails(member)}>Baja</button>
+                <button onClick={() => handleClassClick(class1)}>Ver Detalles</button>
+                <button className="botonbaja" onClick={() => handleDeleteClick(class1)}>Eliminar</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      {showModal && (
-        <div id="myModal" className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={() => setShowModal(false)}>&times;</span>
-            <p>Nombre: {selectedClass.nombre}</p>
-            <p>Nivel: {selectedClass.nivel}</p>
-            <p>Entrenador: {selectedClass.entrenador}</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
