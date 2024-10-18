@@ -4,17 +4,17 @@ let selectedRoutine = null; // Variable para almacenar la rutina seleccionada
 
 const routineService = {
   // Método para establecer la rutina seleccionada
-  setSelectedMember(routine) {
+  setSelectedRoutine(routine) {
     selectedRoutine = routine;
   },
 
   // Método para obtener la rutina seleccionada
-  getSelectedMember() {
+  getSelectedRoutine() {
     return selectedRoutine;
   },
 
   // Método para limpiar/desseleccioando las rutina seleccionada
-  clearSelectedMember(){
+  clearSelectedRoutine(){
     selectedRoutine = null;
 
   }

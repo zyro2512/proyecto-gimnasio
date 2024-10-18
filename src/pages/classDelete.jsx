@@ -44,4 +44,25 @@ const ClassDelete = () => {
   );
 };
 
+// Estilos de ejemplo para los botones
+const deleteButtonStyle = {
+  backgroundColor: 'red',
+  color: 'white',
+  padding: '10px 20px',
+  border: 'none',
+  borderRadius: '5px',
+  cursor: 'pointer',
+};
+
+const cancelButtonStyle = {
+  backgroundColor: 'gray',
+  color: 'white',
+  padding: '10px 20px',
+  border: 'none',
+  borderRadius: '5px',
+  cursor: 'pointer',
+  marginLeft: '10px',
+};
+
+
 export default ClassDelete;

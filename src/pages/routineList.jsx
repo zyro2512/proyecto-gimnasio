@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
+import RoutineDetails from './routineDetails';  // Asegúrate de tener este componente
+import RoutineDelete from './routineDelete';    // Asegúrate de tener este componente
+import routineService from '../services/routineService'; // Importamos routineService
 
 const RoutineList = () => {
   const [routines, setRoutines] = useState([]);
-  const [showModal, setShowModal] = useState(false);
   const [selectedRoutine, setSelectedRoutine] = useState(null);
-
-  const toggleDetails = (routine) => {
-    setSelectedRoutine(routine);
-    setShowModal(!showModal);
-  };
+  const [selectedToDelRoutine, setSelectedToDelRoutine] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:3000/api/routines')
@@ -16,6 +14,29 @@ const RoutineList = () => {
       .then(data => setRoutines(data))
       .catch(error => console.error('Error fetching routines:', error));
   }, []);
+
+  const handleRoutineClick = (routine) => {
+    setSelectedRoutine(routine);
+    routineService.setSelectedRoutine(routine);
+  };
+
+  const handleDeleteClick = (routine) => {
+    setSelectedToDelRoutine(routine);
+    routineService.setSelectedRoutine(routine);
+  };
+
+  const handleBackToList = () => {
+    routineService.setSelectedRoutine(null);
+    setSelectedRoutine(null);
+  };
+
+  if (selectedRoutine) {
+    return <RoutineDetails onBack={handleBackToList} />;
+  }
+
+  if (selectedToDelRoutine) {
+    return <RoutineDelete />;
+  }
 
   return (
     <div>
@@ -36,24 +57,13 @@ const RoutineList = () => {
               <td>{routine.descripcion}</td>
               <td>{routine.nivel}</td>
               <td>
-              <button onClick={() => toggleDetails(member)}>Ver</button>
-              <button className='botonbaja' onClick={() => toggleDetails(member)}>Baja</button>
+                <button onClick={() => handleRoutineClick(routine)}>Ver Detalles</button>
+                <button className="botonbaja" onClick={() => handleDeleteClick(routine)}>Eliminar</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      {showModal && (
-        <div id="myModal" className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={() => setShowModal(false)}>&times;</span>
-            <p>Nombre: {selectedRoutine.nombre}</p>
-            <p>Descripción: {selectedRoutine.descripcion}</p>
-            <p>Nivel: {selectedRoutine.nivel}</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
